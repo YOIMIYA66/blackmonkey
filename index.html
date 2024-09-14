@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黑神话悟空</title>
+  <!-- 引入自定义CSS文件 -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- 引入Google字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header>
+    <div class="container">
+      <!-- 网站LOGO区域 -->
+      <div class="logo">
+        <h1>黑神话悟空</h1>
+      </div>
+      <!-- 导航菜单 -->
+      <nav>
+        <ul>
+          <li><a href="#home">首页</a></li>
+          <li><a href="#news">新闻</a></li>
+          <li><a href="#features">特色</a></li>
+          <li><a href="#trailer">宣传片</a></li>
+          <li><a href="https://www.gamesci.com.cn/">联系我们</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 视频背景部分，模拟黑神话首页的效果 -->
+  <section id="hero">
+    <!-- 全屏背景视频 -->
+    <video autoplay muted loop id="bg-video">
+      <source src="video/video_WebTitle_batch.mp4" type="video/mp4">
+      您的浏览器不支持视频播放。
+    </video>
+    <div class="hero-content">
+      <h2>重走西游故地，再写神话结局</h2>
+      <p>体验全新的冒险</p>
+      <!-- 引导按钮 -->
+      <a href="#features" class="btn">了解更多</a>
+    </div>
+  </section>
+
+  <!-- 新闻区，简化版新闻展示 -->
+  <section id="news">
+    <div class="container">
+      <h2>最新动态</h2>
+      <div class="news-cards">
+        <div class="news-card">
+          <h3>《黑神话悟空》更新</h3>
+          <p>最新更新版本带来更多神奇体验。</p>
+        </div>
+        <div class="news-card">
+          <h3>全新角色预告</h3>
+          <p>神秘角色即将加入战斗，敬请期待。</p>
+        </div>
+        <div class="news-card">
+          <h3>体验优化</h3>
+          <p>优化了游戏性能和用户界面。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特色展示区 -->
+  <section id="features">
+    <div class="container">
+      <h2>我们的特色</h2>
+      <div class="feature-cards">
+        <div class="card">
+          <img src="images/feature1.jpg" alt="Feature 1">
+          <h3>关卡多端</h3>
+          <p>体验全新的神话世界。</p>
+        </div>
+        <div class="card">
+          <img src="images/feature3.jpg" alt="Feature 2">
+          <h3>妖王凶猛</h3>
+          <p>直面强敌，对阵昔日传奇。</p>
+        </div>
+        <div class="card">
+          <img src="images/feature2.jpg" alt="Feature 3">
+          <h3>变化无穷</h3>
+          <p>自由搭配法术，随心构筑天赋。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 宣传片播放页面 -->
+  <section id="trailer" class="trailer-section">
+    <div class="container">
+      <h2>游戏宣传片</h2>
+      <div class="trailer">
+        <img src="images/trailer-thumb.png" alt="Game Trailer Thumbnail" class="trailer-thumbnail">
+        <button class="play-btn" onclick="openModal()">播放</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 宣传片模态窗口 -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <video controls autoplay>
+        <source src="video/gamesci_2024_PV07_ZH.mp4" type="video/mp4">
+        您的浏览器不支持播放此视频。
+      </video>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 游戏科学 版权所有。</p>
+    </div>
+  </footer>
+
+<script>
+  // 打开模态窗口
+  function openModal() {
+    const modal = document.getElementById('modal');
+    const video = modal.querySelector('video');
+
+    // 显示模态窗口
+    modal.style.display = 'block';
+
+    // 播放视频
+    if (video) {
+      video.play();
+    }
+  }
+
+  // 关闭模态窗口
+  function closeModal() {
+    const modal = document.getElementById('modal');
+    const video = modal.querySelector('video');
+
+    // 隐藏模态窗口
+    modal.style.display = 'none';
+
+    // 暂停视频并重置播放时间
+    if (video) {
+      video.pause();
+      video.currentTime = 0; // 重置视频播放时间
+    }
+  }
+
+  // 点击模态背景也能关闭模态
+  window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+</script>
+
+
+</body>
+</html>
